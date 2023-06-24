@@ -43,33 +43,33 @@
             letter-spacing: 0.5px;
         }
 
-        .row-heading,.make-bold {
+        .row-heading,
+        .make-bold {
             font-weight: bold;
         }
 
-        .marks-taker{
+        .marks-taker {
             display: flex;
             align-items: baseline;
             justify-content: center;
             gap: 1.2rem;
         }
 
-        .marks-taker input{
-                width: auto !important;
+        .marks-taker input {
+            width: auto !important;
         }
 
-        .marks-taker span{
-                font-size: 1.2rem;
+        .marks-taker span {
+            font-size: 1.2rem;
         }
 
-        .percentage{
+        .percentage {
             margin-top: 1rem;
             display: flex;
             align-items: center !important;
             justify-content: center;
             gap: 1rem;
         }
-
     </style>
 
 
@@ -135,11 +135,12 @@
                             <td>
 
                                 <div class="marks-taker">
-                                    <input type="number" class="form-control"  id="sem1be1" min="0" max="700">
+                                    <input type="number" class="form-control" id="sem1be1" min="0" max="700">
                                     <span>/ 700</span>
                                 </div>
 
-                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem1be1-percentage"></span>%</span>
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span
+                                        id="sem1be1-percentage"></span>%</span>
 
                             </td>
 
@@ -150,7 +151,8 @@
                                     <span>/ 700</span>
                                 </div>
 
-                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem1be2-percentage"></span>%</span>
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span
+                                        id="sem1be2-percentage"></span>%</span>
 
                             </td>
 
@@ -161,7 +163,8 @@
                                     <span>/ 650</span>
                                 </div>
 
-                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem1be3-percentage"></span>%</span>
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span
+                                        id="sem1be3-percentage"></span>%</span>
                             </td>
 
 
@@ -172,37 +175,40 @@
                             <td class="row-heading text-center align-middle">2<sup>nd</sup> Semester</td>
 
                             <td>
-                                
+
                                 <div class="marks-taker">
-                                <input type="number" class="form-control" id="sem2be1" min="0" max="700">
-                                <span>/ 700</span>
+                                    <input type="number" class="form-control" id="sem2be1" min="0" max="700">
+                                    <span>/ 700</span>
                                 </div>
 
-                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem2be1-percentage"></span>%</span>
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span
+                                        id="sem2be1-percentage"></span>%</span>
                             </td>
 
                             <td>
 
                                 <div class="marks-taker">
 
-                                <input type="number" class="form-control" id="sem2be2" min="0" max="700">
-                                <span>/ 700</span>
+                                    <input type="number" class="form-control" id="sem2be2" min="0" max="700">
+                                    <span>/ 700</span>
 
                                 </div>
 
-                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem2be2-percentage"></span>%</span>
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span
+                                        id="sem2be2-percentage"></span>%</span>
                             </td>
 
                             <td>
 
                                 <div class="marks-taker">
 
-                                <input type="number" class="form-control" id="sem2be3" min="0" max="700">
-                                <span>/ 650</span>
+                                    <input type="number" class="form-control" id="sem2be3" min="0" max="700">
+                                    <span>/ 650</span>
 
                                 </div>
-                                
-                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem2be3-percentage"></span>%</span>
+
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span
+                                        id="sem2be3-percentage"></span>%</span>
                             </td>
 
                         </tr>
@@ -241,40 +247,44 @@
         crossorigin="anonymous"></script>
 
     <script>
+        
         // Calculate percentages and overall marks
-        function calculatePercentage(inputId, percentageId) {
+        
+        function calculatePercentage(inputId, percentageId,totalMark) {
+
             const input = document.getElementById(inputId);
             const percentage = document.getElementById(percentageId);
 
             input.addEventListener('input', () => {
                 const mark = input.value;
-                const percentageValue = mark / 7;
+                const percentageValue = mark / totalMark;
 
                 percentage.textContent = percentageValue.toFixed(2);
             });
+
         }
 
-        calculatePercentage('sem1be1', 'sem1be1-percentage');
-        calculatePercentage('sem1be2', 'sem1be2-percentage');
-        calculatePercentage('sem1be3', 'sem1be3-percentage');
-        calculatePercentage('sem2be1', 'sem2be1-percentage');
-        calculatePercentage('sem2be2', 'sem2be2-percentage');
-        calculatePercentage('sem2be3', 'sem2be3-percentage');
+        /* This method calls when page load and waiting for inputs */
+        calculatePercentage('sem1be1', 'sem1be1-percentage',7);
+        calculatePercentage('sem1be2', 'sem1be2-percentage',7);
+        calculatePercentage('sem1be3', 'sem1be3-percentage',6.5);
+        calculatePercentage('sem2be1', 'sem2be1-percentage',7);
+        calculatePercentage('sem2be2', 'sem2be2-percentage',7);
+        calculatePercentage('sem2be3', 'sem2be3-percentage',6.5);
 
-        // Update overall marks
+        /* Update overall marks  */
         function updateOverallMarks() {
             const overallBe1 = document.getElementById('overallbe1');
             const overallBe2 = document.getElementById('overallbe2');
             const overallBe3 = document.getElementById('overallbe3');
-            const overall = document.getElementById('overall');
 
             overallBe1.value = (+document.getElementById('sem1be1').value + +document.getElementById('sem2be1').value);
             overallBe2.value = (+document.getElementById('sem1be2').value + +document.getElementById('sem2be2').value);
             overallBe3.value = (+document.getElementById('sem1be3').value + +document.getElementById('sem2be3').value);
-            overall.value = (+overallBe1.value + +overallBe2.value + +overallBe3.value);
         }
 
-        // Update overall percentage
+        /* Update overall percentage */
+
         function updateOverallPercentage() {
             const overallPercentage = document.getElementById('overall-percentage');
             const overall = document.getElementById('overall').value;
@@ -283,15 +293,20 @@
             overallPercentage.textContent = overallPercentageValue.toFixed(2);
         }
 
-        // Update overall marks and percentage when any input changes
+        /* This method call first  : root method */
+        /* Update overall marks and percentage when any input changes */
         const inputs = document.querySelectorAll('.form-control');
+        
         inputs.forEach((input) => {
             input.addEventListener('input', () => {
                 updateOverallMarks();
                 updateOverallPercentage();
             });
+        
         });
+
     </script>
+
 </body>
 
 </html>

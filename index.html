@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Result-Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            font-family: math;
+        }
+
+        .img {
+            width: 120px;
+            height: auto;
+        }
+
+        .studentBio {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .studentBio-label {
+            font-weight: bolder;
+        }
+
+        .studentBio-input {
+            display: inline !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .row-heading,.make-bold {
+            font-weight: bold;
+        }
+
+        .marks-taker{
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+
+        .marks-taker input{
+                width: auto !important;
+        }
+
+        .marks-taker span{
+                font-size: 1.2rem;
+        }
+
+        .percentage{
+            margin-top: 1rem;
+            display: flex;
+            align-items: center !important;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container" style="border: 1px solid black;margin:4rem auto">
+
+        <div class="row mt-3">
+
+            <div class="col-12 text-center heading">
+                <img src="https://msubaroda.ac.in/asset/images/msulogo412.png" alt="University Logo" class="mb-2 img">
+                <h1>The Maharaja Sayajiro University of Baroda</h1>
+            </div>
+
+        </div>
+
+        <div class="row mt-3">
+
+            <!-- <div class="col-12"> -->
+
+            <div class="mb-3 col-3 studentBio">
+                <label for="numberField" class="form-label studentBio-label">PRN</label>
+                <input type="text" class="form-control studentBio-input" id="numberField" pattern="\d{17}" required>
+            </div>
+
+            <div class="mb-3 col-9 studentBio">
+                <label for="nameField" class="form-label studentBio-label">Name</label>
+                <input type="text" class="form-control studentBio-input" id="nameField" required>
+            </div>
+
+            <!-- </div> -->
+
+        </div>
+
+        <div class="row mt-3">
+
+            <div class="col-12">
+
+                <table class="table table-bordered">
+
+                    <thead>
+
+                        <tr>
+                            <th rowspan="2" class="text-center align-middle">Semester</th>
+                            <th colspan="3" class="text-center">Year</th>
+                        </tr>
+
+                        <tr>
+                            <th class="text-center">BE-I</th>
+                            <th class="text-center">BE-II</th>
+                            <th class="text-center">BE-III</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        <tr>
+
+                            <td class="row-heading text-center align-middle">1<sup>st</sup> Semester</td>
+
+                            <td>
+
+                                <div class="marks-taker">
+                                    <input type="number" class="form-control"  id="sem1be1" min="0" max="700">
+                                    <span>/ 700</span>
+                                </div>
+
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem1be1-percentage"></span>%</span>
+
+                            </td>
+
+                            <td>
+
+                                <div class="marks-taker">
+                                    <input type="number" class="form-control" id="sem1be2" min="0" max="700">
+                                    <span>/ 700</span>
+                                </div>
+
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem1be2-percentage"></span>%</span>
+
+                            </td>
+
+                            <td>
+
+                                <div class="marks-taker">
+                                    <input type="number" class="form-control" id="sem1be3" min="0" max="700">
+                                    <span>/ 650</span>
+                                </div>
+
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem1be3-percentage"></span>%</span>
+                            </td>
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="row-heading text-center align-middle">2<sup>nd</sup> Semester</td>
+
+                            <td>
+                                
+                                <div class="marks-taker">
+                                <input type="number" class="form-control" id="sem2be1" min="0" max="700">
+                                <span>/ 700</span>
+                                </div>
+
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem2be1-percentage"></span>%</span>
+                            </td>
+
+                            <td>
+
+                                <div class="marks-taker">
+
+                                <input type="number" class="form-control" id="sem2be2" min="0" max="700">
+                                <span>/ 700</span>
+
+                                </div>
+
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem2be2-percentage"></span>%</span>
+                            </td>
+
+                            <td>
+
+                                <div class="marks-taker">
+
+                                <input type="number" class="form-control" id="sem2be3" min="0" max="700">
+                                <span>/ 650</span>
+
+                                </div>
+                                
+                                <span class="percentage"><span class="make-bold">Percentage:</span> <span id="sem2be3-percentage"></span>%</span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="row-heading text-center align-middle">Over All</td>
+
+                            <td>
+                                <input type="number" class="form-control overall-input" id="overallbe1" disabled>
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control overall-input" id="overallbe2" disabled>
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control overall-input" id="overallbe3" disabled>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Calculate percentages and overall marks
+        function calculatePercentage(inputId, percentageId) {
+            const input = document.getElementById(inputId);
+            const percentage = document.getElementById(percentageId);
+
+            input.addEventListener('input', () => {
+                const mark = input.value;
+                const percentageValue = mark / 7;
+
+                percentage.textContent = percentageValue.toFixed(2);
+            });
+        }
+
+        calculatePercentage('sem1be1', 'sem1be1-percentage');
+        calculatePercentage('sem1be2', 'sem1be2-percentage');
+        calculatePercentage('sem1be3', 'sem1be3-percentage');
+        calculatePercentage('sem2be1', 'sem2be1-percentage');
+        calculatePercentage('sem2be2', 'sem2be2-percentage');
+        calculatePercentage('sem2be3', 'sem2be3-percentage');
+
+        // Update overall marks
+        function updateOverallMarks() {
+            const overallBe1 = document.getElementById('overallbe1');
+            const overallBe2 = document.getElementById('overallbe2');
+            const overallBe3 = document.getElementById('overallbe3');
+            const overall = document.getElementById('overall');
+
+            overallBe1.value = (+document.getElementById('sem1be1').value + +document.getElementById('sem2be1').value);
+            overallBe2.value = (+document.getElementById('sem1be2').value + +document.getElementById('sem2be2').value);
+            overallBe3.value = (+document.getElementById('sem1be3').value + +document.getElementById('sem2be3').value);
+            overall.value = (+overallBe1.value + +overallBe2.value + +overallBe3.value);
+        }
+
+        // Update overall percentage
+        function updateOverallPercentage() {
+            const overallPercentage = document.getElementById('overall-percentage');
+            const overall = document.getElementById('overall').value;
+            const overallPercentageValue = (overall / 21) * 100;
+
+            overallPercentage.textContent = overallPercentageValue.toFixed(2);
+        }
+
+        // Update overall marks and percentage when any input changes
+        const inputs = document.querySelectorAll('.form-control');
+        inputs.forEach((input) => {
+            input.addEventListener('input', () => {
+                updateOverallMarks();
+                updateOverallPercentage();
+            });
+        });
+    </script>
+</body>
+
+</html>
